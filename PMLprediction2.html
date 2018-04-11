@@ -219,6 +219,7 @@ rpart.plot::rpart.plot(modelDT)</code></pre>
 </div>
 <div id="predicting-with-the-decision-tree-model" class="section level3">
 <h3>4. Predicting with the Decision Tree Model</h3>
+<p>Using Decision Tree, we shouldn’t expect the accuracy to be high. In fact, anything around 80% would be acceptable.</p>
 <pre class="r"><code>predictDT&lt;-predict(modelDT, Testing, type=&quot;class&quot;)
 caret::confusionMatrix(predictDT, Testing$classe)</code></pre>
 <pre><code>## Confusion Matrix and Statistics
@@ -256,6 +257,7 @@ caret::confusionMatrix(predictDT, Testing$classe)</code></pre>
 </div>
 <div id="predicting-with-the-random-forests-model" class="section level2">
 <h2>5. Predicting with the Random Forests Model</h2>
+<p>Using random forest, the out of sample error should be small. The error will be estimated using the 25% testing sample. We should expect an error estimate of &lt; 3%.</p>
 <pre class="r"><code>modelRF&lt;-randomForest::randomForest(classe~., data = Training, method = &quot;class&quot;)
 predictRF&lt;-predict(modelRF, Testing, type=&quot;class&quot;)
 caret::confusionMatrix(predictRF, Testing$classe)</code></pre>
@@ -308,7 +310,7 @@ predictTest</code></pre>
 </div>
 <div id="summary" class="section level2">
 <h2>8. Summary</h2>
-<p>About this prediction project of weight lifting exercises, the raw training includes 19,622 samples and 160 variables (pml-training.csv). After removing columns with NAs and useless variables, the final trainging data was split (75:25) into a training dataset with 14718 samples and 53 variables and a testing dataset with 4904 samples and 53 variables for cross validation. The training and prediction was based on a factor variable “classe” which classified performance on barbell lifts. The accuracies from machine learning using a decision tree model and a random forests model were compared. The decision tree method has an accuracy of 74.92%, while random forests model has an accuracy of 99.45%. Thus, random forests model was used for prediction on the 20 test cases (pml-testing.csv). The results of prediction were reported as the following: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20: B A B A A E D B A A B C B A E E A B B B</p>
+<p>About this prediction project of weight lifting exercises, the raw training includes 19,622 samples and 160 variables (pml-training.csv). After removing columns with NAs and useless variables, the final trainging data was split (75:25) into a training dataset with 14718 samples and 53 variables and a testing dataset with 4904 samples and 53 variables for cross validation. The training and prediction was based on a factor variable “classe” which classified performance on barbell lifts. The accuracies from machine learning using a decision tree model and a random forests model were compared. The decision tree method has an accuracy of 74.92%, while random forests model has an accuracy of 99.45%. Thus, random forests model was used for prediction on the 20 test cases (pml-testing.csv), and the expected out of sample error is 100%-99.45%=0.55%. The results of prediction were reported as the following: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20: B A B A A E D B A A B C B A E E A B B B</p>
 </div>
 
 
