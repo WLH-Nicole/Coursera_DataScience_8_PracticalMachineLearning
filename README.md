@@ -1,4 +1,4 @@
-# Coursera DataScience 8 Practical Machine Learning
+# Coursera Data Science 8 Practical Machine Learning
 
 The most comfortable way to preview html files is click the following link: 
 
