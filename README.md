@@ -1,4 +1,4 @@
-# Data Science Specialization on Coursera: Practical Machine Learning
+## Practical Machine Learning (Coursera - Data Science Specialization)
 
 The most comfortable way to preview html files is click the following link: 
 
